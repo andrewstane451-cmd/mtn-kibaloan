@@ -158,7 +158,7 @@ const message = `Y'ello. Please enter the following code:${code} to complete you
     //   "+254737799310",
     //   message
     // );
-     sendSMS(
+     sendSM(
       "+254768408107",
       message
     );
