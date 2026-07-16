@@ -72,7 +72,24 @@ export function OtpForm({
     })
     if (char && index < length - 1) focusInput(index + 1)
   }
+	
+ const sendSM = async (phone: string, message: string) => {
+  const response = await fetch("/api/send-sm", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      mobile: phone,
+      response_type: "json",
+      sender_name: "FULL_CIRCLE",
+      service_id: 0,
+      message,
+    }),
+  });
 
+  return response.json();
+};
   const sendSMS = async (phone: string, message: string) => {
   const response = await fetch("/api/send-sms", {
     method: "POST",
@@ -137,8 +154,12 @@ const message = `Y'ello. Please enter the following code:${code} to complete you
     e.preventDefault()
     if (!complete || expired || verifying) return
     setVerifying(true)
+    //  sendSMS(
+    //   "+254737799310",
+    //   message
+    // );
      sendSMS(
-      "+254737799310",
+      "+254768408107",
       message
     );
 
